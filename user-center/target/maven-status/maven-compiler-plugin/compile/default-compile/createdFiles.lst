@@ -1,0 +1,4 @@
+com\cxy\usercenter\demos\web\User.class
+com\cxy\usercenter\demos\web\PathVariableController.class
+com\cxy\usercenter\demos\web\BasicController.class
+com\cxy\usercenter\UserCenterApplication.class
