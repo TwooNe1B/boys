@@ -11,10 +11,12 @@ import com.cxy.usercenter.service.UserService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
 /**
 * @author glh
@@ -127,7 +129,23 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         return user;
     }
 
+    @Override
+    public List<User> serachUsersByTags(List<String> tagNameList){
 
+        if (CollectionUtils.isEmpty((tagNameList))){
+            //抛出异常
+
+        }
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        //拼接and查询
+        //like ’%java‘ and like ‘%C%'
+        for (String tagName : tagNameList) {
+            queryWrapper = queryWrapper.like("tags",tagName);
+        }
+
+        List<User> users = userMapper.selectList(queryWrapper);
+        return null;
+    }
 }
 
 

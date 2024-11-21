@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.cxy.usercenter.domain.User;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
 * @author glh
@@ -23,4 +24,6 @@ public interface UserService extends IService<User> {
     long userResigter(String userAccount ,String userPassword,String checkPassword);
 
     User doLogin(String userAccount, String userPassword, HttpServletRequest request);
+
+    List<User> serachUsersByTags(List<String> tagList);
 }
